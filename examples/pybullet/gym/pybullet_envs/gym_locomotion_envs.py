@@ -162,6 +162,19 @@ class AntBulletEnv(WalkerBaseBulletEnv):
     self.robot = Ant()
     WalkerBaseBulletEnv.__init__(self, self.robot, render)
 
+  def get_robot_pos_xy(self):
+    x, y, z = self.robot.body_xyz
+    return x,y
+  
+  def set_target_xy(self, tx, ty):
+    # Change target pos in both current and parent class ??
+    self.robot.walk_target_x = tx
+    self.robot.walk_target_y = ty
+
+    self.walk_target_x = tx
+    self.walk_target_y = ty
+    return tx,ty
+
 
 class HumanoidBulletEnv(WalkerBaseBulletEnv):
 
